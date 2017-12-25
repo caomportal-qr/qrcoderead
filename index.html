@@ -1,7 +1,7 @@
 <!doctype html> 
  <html> 
    <head> 
-     <meta charset=shift_jis"/> 
+     <meta charset="shift_jis"/> 
      <title>QRコードリーダー</title> 
      <style> 
        body { 
@@ -36,10 +36,6 @@
        var info = document.getElementById('info'); 
        var scanner = new Instascan.Scanner({ video: videoTag }); 
 
- function jump(){
-window.location.href='info';
-}
-        
        scanner.addListener('scan', function (value) { 
          info.textContent = value; 
        }); 
@@ -58,6 +54,11 @@ window.location.href='info';
        .catch(function(err) { 
          alert(err); 
        }); 
+
+ function jump(){
+window.location.href=document.getElementById('info');
+}
+
      </script> 
    </body> 
 </html> 
