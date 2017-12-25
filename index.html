@@ -1,36 +1,20 @@
-<!doctype html> 
+�ｻｿ<!doctype html> 
  <html> 
    <head> 
-     <meta charset="shift_jis"/> 
-     <title>QRコードリーダー</title> 
+     <meta charset="uft-8"/> 
+     <title>QR繧ｳ繝ｼ繝峨Μ繝ｼ繝</title> 
      <style> 
        body { 
          margin: auto; 
          width: 960px; 
          text-align: center; 
        } 
-       #info { 
-         font-size: 2em; 
-         font-weight: bold; 
-         color: #666; 
-       } 
      </style> 
    </head> 
    <body> 
-     <h1>QRコードリーダー</h1> 
+     <h1>QR繧ｳ繝ｼ繝峨Μ繝ｼ繝</h1> 
       
-     <!-- ここにカメラの映像を表示する --> 
      <video id="preview"></video> 
-      
-     <!-- ここにQRコードの情報を表示する --> 
-     <!--p id="info"></p--> 
-     <p id="info"></p> 
-     <!--a href id="info">クリックしてください</a-->
-     <a href="javascript:window.location.href=info;">hoge</a> 
-     <p><a href="#info">hoge2</a></p>
-    <a href="javascript:void(0);" onclick="jump();">hoge3</a>
-    location.href = "info";
-
 
      <script src="instascan.min.js"></script> 
      <script> 
@@ -39,7 +23,8 @@
        var scanner = new Instascan.Scanner({ video: videoTag }); 
 
        scanner.addListener('scan', function (value) { 
-         info.textContent = value; 
+         <!--info.textContent = value; -->
+         window.open(value); 
        }); 
         
        Instascan.Camera.getCameras() 
@@ -50,16 +35,12 @@
              scanner.start(cameras[0]); 
            } 
            else { 
-             alert('カメラが見つかりません！'); 
+             alert('error'); 
            } 
        }) 
        .catch(function(err) { 
          alert(err); 
        }); 
-
- function jump(){
-window.location.href=document.getElementById('info');
-}
 
      </script> 
    </body> 
