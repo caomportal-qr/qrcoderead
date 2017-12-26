@@ -23,6 +23,7 @@ body {
 <video id="preview"></video>
 
 <script>
+import flash.media.Camera;
 
 var videoTag = document.getElementById('preview');
 var scanner = new Instascan.Scanner({ video: videoTag });
@@ -32,11 +33,17 @@ scanner.addListener('scan', function (value) {
 
 Instascan.Camera.getCameras()
 .then(function (cameras) {
-	trace(Camera.names[0]);
-	trace(Camera.names[1]);
 
-	trace(Camera[0]);
-	trace(Camera[1]);
+var num:int = Camera.names.length;
+trace(num);
+var camera_names:Array = Camera.names;
+
+var i:int;
+var num:int = camera_names.length;
+for(i=0;i < num;i++){
+	trace("id:" + i + " name:" + camera_names[i]);
+}
+
 
     if (cameras.length > 0) {
         scanner.start(cameras[0]);
