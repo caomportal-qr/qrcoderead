@@ -30,37 +30,15 @@ scanner.addListener('scan', function (value) {
     location.href = value;
 });
 
-<!--Security.showSettings(SecurityPanel.CAMERA);
-var cam:Camera = Camera.getCamera();
-if ( cam != null ) {
-	vid.attachCamera(cam);
-
-}-->
-cam = Instascan.Camera.getCamera("0");
-var camComboBox:ComboBox = new ComboBox();
-addChild(camComboBox);
-
-	if (Camera.names.length != 0) { 
- 		for (var i: int = 0; i < Camera.names.length; i++) { 
- 			var item: Object = new Object(); 
- 			item.label = Camera.names[i]; 
- 			camComboBox.addItem(item);  
-		}
-	} else { 
- 		var itemNull: Object = new Object(); 
- 		itemNull.label = "カメラを接続してください"; 
- 		camComboBox.addItem(itemNull); 
-	}
-
-camComboBox.addEventListener(Event.CHANGE, function () { 
- 	cam = Instascan.Camera.getCamera(camComboBox.selectedIndex.toString()); 
-	camVideo.attachCamera(cam);
-
-        scanner.start(cameras[cam]);
-}); 
-
 Instascan.Camera.getCameras()
 .then(function (cameras) {
+<video id="preview"></video>
+	if (Camera.names.length != 0) { 
+ 		for (var i: int = 0; i < Camera.names.length; i++) { 
+ 			item.label = Camera.names[i]; 
+			<p >item.label</p>
+		}
+	}
 
     if (cameras.length > 0) {
         scanner.start(cameras[0]);
@@ -72,8 +50,6 @@ Instascan.Camera.getCameras()
 .catch(function(err) {
     alert(err);
 });
-
-
 
 </script>
 
