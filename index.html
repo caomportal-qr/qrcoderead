@@ -31,6 +31,11 @@ scanner.addListener('scan', function (value) {
 });
 
 Security.showSettings(SecurityPanel.CAMERA);
+var cam:Camera = Camera.getCamera();
+if ( cam != null ) {
+	vid.attachCamera(cam);
+
+}
 
 Instascan.Camera.getCameras()
 .then(function (cameras) {
