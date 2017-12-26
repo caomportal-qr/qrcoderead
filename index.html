@@ -27,17 +27,18 @@ body {
 var videoTag = document.getElementById('preview');
 var scanner = new Instascan.Scanner({ video: videoTag });
 scanner.addListener('scan', function (value) {
+    location.href = value;
+});
+
+Instascan.Camera.getCameras()
+.then(function (cameras) {
+alert (cameras.length);
 var i:int;
 var num:int = cameras.length;
 for(i=0;i < cameras.length;i++){
 	alert("id:" + i + " name:" + cameras[i].name + " id " + cameras[i].id);
 }
 
-    location.href = value;
-});
-
-Instascan.Camera.getCameras()
-.then(function (cameras) {
     if (cameras.length > 0) {
         scanner.start(cameras[0]);
     }
@@ -48,6 +49,7 @@ Instascan.Camera.getCameras()
 .catch(function(err) {
     alert(err);
 });
+
 
 </script>
 
