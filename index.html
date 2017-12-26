@@ -32,13 +32,6 @@ scanner.addListener('scan', function (value) {
 
 Instascan.Camera.getCameras()
 .then(function (cameras) {
-alert (cameras.length);
-var i:int;
-var num:int = cameras.length;
-for(i=0;i < cameras.length;i++){
-	alert("id:" + i + " name:" + cameras[i].name + " id " + cameras[i].id);
-}
-
     if (cameras.length > 0) {
         scanner.start(cameras[0]);
     }
@@ -49,7 +42,6 @@ for(i=0;i < cameras.length;i++){
 .catch(function(err) {
     alert(err);
 });
-
 
 </script>
 
