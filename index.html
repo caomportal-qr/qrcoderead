@@ -32,6 +32,12 @@ scanner.addListener('scan', function (value) {
 
 Instascan.Camera.getCameras()
 .then(function (cameras) {
+	trace(Camera.names[0]);
+	trace(Camera.names[1]);
+
+	trace(Camera[0]);
+	trace(Camera[1]);
+
     if (cameras.length > 0) {
         scanner.start(cameras[0]);
     }
