@@ -36,10 +36,10 @@ if ( cam != null ) {
 	vid.attachCamera(cam);
 
 }-->
+cam = Instascan.Camera.getCamera("0");
 var camComboBox:ComboBox = new ComboBox();
+addChild(camComboBox);
 
-Instascan.Camera.getCameras()
-.then(function (cameras) {
 	if (Camera.names.length != 0) { 
  		for (var i: int = 0; i < Camera.names.length; i++) { 
  			var item: Object = new Object(); 
@@ -51,6 +51,16 @@ Instascan.Camera.getCameras()
  		itemNull.label = "カメラを接続してください"; 
  		camComboBox.addItem(itemNull); 
 	}
+
+camComboBox.addEventListener(Event.CHANGE, function () { 
+ 	cam = Instascan.Camera.getCamera(camComboBox.selectedIndex.toString()); 
+	camVideo.attachCamera(cam);
+
+        scanner.start(cameras[cam]);
+}); 
+
+Instascan.Camera.getCameras()
+.then(function (cameras) {
 
     if (cameras.length > 0) {
         scanner.start(cameras[0]);
@@ -64,10 +74,6 @@ Instascan.Camera.getCameras()
 });
 
 
-camComboBox.addEventListener(Event.CHANGE, function () { 
- 	cam = Camera.getCamera(camComboBox.selectedIndex.toString()); 
-        scanner.start(cameras[cam]);
-}); 
 
 </script>
 
