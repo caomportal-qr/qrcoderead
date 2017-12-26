@@ -30,14 +30,14 @@ scanner.addListener('scan', function (value) {
     location.href = value;
 });
 
-Security.showSettings(SecurityPanel.CAMERA);
+<!--Security.showSettings(SecurityPanel.CAMERA);
 var cam:Camera = Camera.getCamera();
 if ( cam != null ) {
 	vid.attachCamera(cam);
 
-}
+}-->
 
-Instascan.Camera.getCameras()
+Instascan.Camera.getCameras(String( cameras.selectedIndex ) )
 .then(function (cameras) {
     if (cameras.length > 0) {
         scanner.start(cameras[1]);
